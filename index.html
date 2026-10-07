@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🐧%3C/text%3E%3C/svg%3E">
+<title>Установка Arch Linux под твой компьютер</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="bar"><div class="dots"><i></i><i></i><i></i></div><b>Arch Noir</b><div class="prog"><i id="pg"></i></div><button class="pill" id="th">◐</button></div>
+<main id="m">
+<div class="hero"><small>Arch Linux · полное руководство</small><h1>Arch Noir.</h1>
+<p>Нажми кнопки — получишь инструкцию именно под свой компьютер</p>
+<div class="ty">$ <span>sudo pacman -S arch</span></div></div>
+
+<h2>Шаг 0 · Узнай свой компьютер</h2>
+<p class="sub">Не знаешь, что выбирать? Загрузись с флешки (шаг 1) и введи это в терминале.</p>
+<div class="card"><div id="hw"></div><p style="margin:10px 0 0;color:var(--mu);font-size:14px"><code>efi</code> есть → UEFI, нет → BIOS. В <code>lscpu</code> ищи Intel или AMD, в <code>lspci</code> — видеокарту (бывает две: встроенная и NVIDIA).</p></div>
+
+<h2>Настрой под себя</h2>
+<p class="sub">Выбери готовый сценарий или собери свой. Руководство ниже перестраивается мгновенно.</p>
+<div class="card"><div class="pre" id="pre"></div><div id="ctl"></div></div>
+<div class="sum" id="sum"></div>
+
+<h2>Твоё руководство</h2>
+<p class="sub">Идёшь сверху вниз. Нажми на заголовок шага, чтобы отметить его выполненным.</p>
+<div id="out"></div>
+<div class="fin" id="fin">🎉 Всё готово! Добро пожаловать в Arch Linux.</div>
+
+<h2>Если что-то сломалось</h2>
+<details><summary>Система не загружается</summary><p>Загрузись с флешки, смонтируй разделы как в шаге «Форматирование», зайди в <code>arch-chroot /mnt</code> и повтори шаг про загрузчик. С LUKS сначала выполни <code>cryptsetup open</code>.</p></details>
+<details><summary>Нет интернета в установленной системе</summary><p>Проверь <code>systemctl status NetworkManager</code>. Wi‑Fi: <code>nmtui</code> — простое меню в терминале.</p></details>
+<details><summary>Чёрный экран после входа</summary><p>Почти всегда видеодрайвер. Нажми <code>Ctrl+Alt+F3</code>, войди в терминал и поставь драйвер для своей карты.</p></details>
+<details><summary>Ошибка подписей pacman</summary><p>Выполни <code>sudo pacman -Sy archlinux-keyring</code> и повтори обновление.</p></details>
+<details><summary>Windows пропала из меню загрузки</summary><p>Установи <code>os-prober</code>, открой <code>nano /etc/default/grub</code>, убедись что есть <code>GRUB_DISABLE_OS_PROBER=false</code>, затем <code>grub-mkconfig -o /boot/grub/grub.cfg</code>.</p></details>
+<details><summary>Застрял в nano</summary><p>Сохранить — <code>Ctrl+O</code>, затем <code>Enter</code>. Выйти — <code>Ctrl+X</code>. Если спросит «Сохранить?», нажми <code>Y</code>, затем <code>Enter</code>.</p></details>
+</main>
+<footer>
+<p style="color:var(--mu)">Больше деталей: <a href="https://wiki.archlinux.org/">ArchWiki</a> · <a href="https://wiki.archlinux.org/title/Installation_guide">Installation guide</a></p>
+<div class="row"><a class="b" href="https://github.com/meierwii">github.com/meierwii</a><a class="b g" href="https://meierwii.github.io">meierwii.github.io</a></div>
+<small>Arch Linux — торговая марка своих владельцев.</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
